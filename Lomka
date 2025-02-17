@@ -1,0 +1,12 @@
+local Player = game.Players.LocalPlayer
+
+local Gui = Player.PlayerGui.CountryMenu
+
+local BalanceText = Gui.BalanceText
+BalanceText.Visible = false
+
+local Clone = BalanceText:Clone()
+Clone.Visible = true
+Clone.Name = "Stupa pupa"
+Clone.Text = "Balance: 5000000(+5)"
+Clone.Parent = Gui
