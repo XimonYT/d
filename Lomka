@@ -1,12 +1,23 @@
 local Player = game.Players.LocalPlayer
-
 local Gui = Player.PlayerGui.CountryMenu
 
 local BalanceText = Gui.BalanceText
 BalanceText.Visible = false
 
+local StartValueString = string.match(BalanceText.Text, "%d+")
+local StartValue = tonumber(StartValueString + 50000000)
+
+if Gui:FindFirstChild("Stupa pupa") then
+	Gui:FindFirstChild("Stupa pupa"):Destroy()
+end
+
 local Clone = BalanceText:Clone()
 Clone.Visible = true
 Clone.Name = "Stupa pupa"
-Clone.Text = "Balance: 5000000(+5)"
+Clone.Text = "Balance: " .. StartValue .. " (+5000)"
 Clone.Parent = Gui
+
+while task.wait(1.5) do
+    StartValue += 5000
+    Clone.Text = "Balance: " .. StartValue .. " (+5000)"
+end
